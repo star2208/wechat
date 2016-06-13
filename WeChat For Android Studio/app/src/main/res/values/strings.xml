@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">微信</string>
+    <string name="app_name">美窝</string>
     <string name="contacts">通讯录</string>
     <string name="me">我</string>
     <string name="discover">发现</string>
     <string name="recommended_friends">新的朋友</string>
     <string name="group_chats">群聊</string>
     <string name="official_accounts">订阅号</string>
-    <string name="chat">微信</string>
+    <string name="chat">美窝</string>
     <string name="no_msg">暂时没有新消息</string>
     <string name="wechat_id">微信号</string>
     <string name="my_posts">相册</string>

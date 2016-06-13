@@ -103,31 +103,41 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	}
 
 	private void getLogin(final String userName, final String password) {
-		if (!TextUtils.isEmpty(userName) && !TextUtils.isEmpty(password)) {
-			RequestParams params = new RequestParams();
-			params.put("username", userName);
-			params.put("password", DES.md5Pwd(password));
+//		im测试暂时注释
+//		if (!TextUtils.isEmpty(userName) && !TextUtils.isEmpty(password)) {
+//			RequestParams params = new RequestParams();
+//			params.put("username", userName);
+//			params.put("password", DES.md5Pwd(password));
+//			getLoadingDialog("正在登录...  ").show();
+//			netClient.post(Constants.Login_URL, params, new BaseJsonRes() {
+//
+//				@Override
+//				public void onMySuccess(String data) {
+//					Utils.putValue(LoginActivity.this, Constants.UserInfo, data);
+//					Utils.putBooleanValue(LoginActivity.this,
+//							Constants.LoginState, true);
+//					Utils.putValue(LoginActivity.this, Constants.NAME, userName);
+//					Utils.putValue(LoginActivity.this, Constants.PWD,
+//							DES.md5Pwd(password));
+//					getChatserive(userName, DES.md5Pwd(password));
+//				}
+//
+//				@Override
+//				public void onMyFailure() {
+//					getLoadingDialog("正在登录").dismiss();
+//				}
+//			});
+//		} else {
+//			Utils.showLongToast(LoginActivity.this, "请填写账号或密码！");
+//		}
+		if (!TextUtils.isEmpty(userName)) {
+			Utils.putValue(LoginActivity.this, Constants.NAME, userName);
+
 			getLoadingDialog("正在登录...  ").show();
-			netClient.post(Constants.Login_URL, params, new BaseJsonRes() {
+			getLoadingDialog("正在登录").dismiss();
 
-				@Override
-				public void onMySuccess(String data) {
-					Utils.putValue(LoginActivity.this, Constants.UserInfo, data);
-					Utils.putBooleanValue(LoginActivity.this,
-							Constants.LoginState, true);
-					Utils.putValue(LoginActivity.this, Constants.NAME, userName);
-					Utils.putValue(LoginActivity.this, Constants.PWD,
-							DES.md5Pwd(password));
-					getChatserive(userName, DES.md5Pwd(password));
-				}
-
-				@Override
-				public void onMyFailure() {
-					getLoadingDialog("正在登录").dismiss();
-				}
-			});
 		} else {
-			Utils.showLongToast(LoginActivity.this, "请填写账号或密码！");
+			Utils.showLongToast(LoginActivity.this, "请填写昵称！");
 		}
 	}
 
@@ -139,6 +149,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 							public void run() {
 								Utils.putBooleanValue(LoginActivity.this,
 										Constants.LoginState, true);
+								//用户姓名
 								Utils.putValue(LoginActivity.this,
 										Constants.User_ID, userName);
 								Utils.putValue(LoginActivity.this,
